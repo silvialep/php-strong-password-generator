@@ -1,6 +1,19 @@
 <?php
 
-$passwordLength = $_GET['passlen'];
+
+$passwordLength = $_GET['passlen'] ?? 'false';
+
+function get_rand_pass($passwordLength) {
+    if ($passwordLength > 0) {
+        $rand_id = "";
+        for ($i = 1; $i <= get_rand_pass($passwordLength); $i++) {
+            mt_srand((float)microtime() * 1000000);
+            $num = mt_rand(1, 36);
+            // $rand_id .= assign_rand_value($num);
+        }
+    }
+    return $rand_id;
+}
 
 ?>
 
@@ -20,6 +33,20 @@ $passwordLength = $_GET['passlen'];
         <input style="width: 400px;" name="passlen" type="number" placeholder="Inserisci la lunghezza della password che vuoi generare">
         <input type="submit">
     </form>
+
+    <?php
+    if($passwordLength != 'false' && $passwordLength != '') {
+        echo "
+        <div>
+            <hr>
+            <h4>Ecco la tua password: </h4><span>{$passwordLength}</span>
+        </div>";
+        
+
+        
+    }
+    ?>
+    
     
 </body>
 </html>
