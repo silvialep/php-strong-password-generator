@@ -18,18 +18,6 @@ function randomPassword($passwordLength) {
 
         $rpsw .= $newChar;
       }
-    //   if ($passwordLength > 0) {
-    //       $rpsw = "";
-    //       $length1= $passwordLength-1;
-    //       $input = array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'); 
-    //       $rand = array_rand($input, 1);
-    //       $source = str_split($source, 1);
-    //       for ($i = 1; $i <= $length1; $i++) {
-    //           $num = mt_rand(1, count($source));
-    //           $rstr1 .= $source[$num - 1];
-    //           $rpsw = "{$rand}{$rstr1}";
-    //       }
-    //   }
       return $rpsw;
   }
 
@@ -62,11 +50,7 @@ function randomPassword($passwordLength) {
         </div>
 
         <?php
-        // echo "
-        // <div>
-        //     <hr>
-        //     <h4>Ecco la tua password: </h4><span>{randomPassword($passwordLength)}</span>
-        // </div>";
+
         
 
         
