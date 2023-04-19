@@ -3,17 +3,35 @@
 
 $passwordLength = $_GET['passlen'] ?? 'false';
 
-function get_rand_pass($passwordLength) {
-    if ($passwordLength > 0) {
-        $rand_id = "";
-        for ($i = 1; $i <= get_rand_pass($passwordLength); $i++) {
-            mt_srand((float)microtime() * 1000000);
-            $num = mt_rand(1, 36);
-            // $rand_id .= assign_rand_value($num);
-        }
-    }
-    return $rand_id;
-}
+// var_dump($_GET['passlen']);
+
+function randomPassword($passwordLength) {
+      $rpsw = '';
+      $source = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890|@#~$%()=^*+[]{}-_';
+      
+      for($i = 1; $i <= $passwordLength; $i++) {
+        //Generate a random index based on the string in question.
+        $randomIndex = mt_rand(0, strlen($source) - 1);
+
+        //Print out the random character.
+        $newChar = $source[$randomIndex];
+
+        $rpsw .= $newChar;
+      }
+    //   if ($passwordLength > 0) {
+    //       $rpsw = "";
+    //       $length1= $passwordLength-1;
+    //       $input = array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'); 
+    //       $rand = array_rand($input, 1);
+    //       $source = str_split($source, 1);
+    //       for ($i = 1; $i <= $length1; $i++) {
+    //           $num = mt_rand(1, count($source));
+    //           $rstr1 .= $source[$num - 1];
+    //           $rpsw = "{$rand}{$rstr1}";
+    //       }
+    //   }
+      return $rpsw;
+  }
 
 ?>
 
@@ -36,11 +54,19 @@ function get_rand_pass($passwordLength) {
 
     <?php
     if($passwordLength != 'false' && $passwordLength != '') {
-        echo "
+        ?>
+
         <div>
             <hr>
-            <h4>Ecco la tua password: </h4><span>{$passwordLength}</span>
-        </div>";
+            <h4>Ecco la tua password: <?php echo randomPassword($passwordLength) ?></h4>
+        </div>
+
+        <?php
+        // echo "
+        // <div>
+        //     <hr>
+        //     <h4>Ecco la tua password: </h4><span>{randomPassword($passwordLength)}</span>
+        // </div>";
         
 
         
