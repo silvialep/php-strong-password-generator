@@ -17,23 +17,14 @@ include './partials/functions.php';
 </head>
 <body>
 
-    <form action="index.php" method="GET">
+    <h1>Password generator</h1>
+
+    <form action="login.php" method="GET">
         <input style="width: 400px;" name="passlen" type="number" placeholder="Inserisci la lunghezza della password che vuoi generare">
         <input type="submit">
     </form>
 
-    <?php
-    if($passwordLength != 'false' && $passwordLength != '') {
-        ?>
-
-        <div>
-            <hr>
-            <h4>Ecco la tua password: <?php echo randomPassword($passwordLength) ?></h4>
-        </div>
-
-        <?php
-    }
-    ?>
+    
     
     
 </body>
