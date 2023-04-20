@@ -1,13 +1,13 @@
 <?php
 
 
-$passwordLength = $_GET['passlen'] ?? 'false';
+// $passwordLength = $_GET['passlen'] ?? 'false';
 
 // var_dump($_GET['passlen']);
 
 function randomPassword($passwordLength) {
       $rpsw = '';
-      $source = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890|@#~$%()=^*+[]{}-_';
+      $source = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#~$%()=^*+[]{}-_';
       
       for($i = 1; $i <= $passwordLength; $i++) {
         //Generate a random index based on the string in question.
